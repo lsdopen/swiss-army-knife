@@ -1,12 +1,17 @@
 # swiss-army-knife
 Container that contains (haha) lots of tools we use on a daily basis, with SSH daemon
 
+## Quicky and Dirty
+```
+podman run -d -P --name swiss-army-knife docker.io/lsdopen/swiss-army-knife:latest
+```
+
 ## Running on a single docker host
 
 Building it local
 ```
 podman build -t swiss-army-knife .
-podman run -d -P --name  swiss-army-knife localhost/swiss-army-knife:latest
+podman run -d -P --name swiss-army-knife localhost/swiss-army-knife:latest
 ```
 
 Get the port
@@ -20,4 +25,10 @@ SSH in
 ssh root@localhost -p 44563
 Last login: Wed Sep  2 10:49:55 2020 from 127.0.0.1
 root@ef8ce90c0ea5:~# 
+```
+
+Stop conatiner
+```
+podman stop swiss-army-knife
+podman rm swiss-army-knife
 ```
