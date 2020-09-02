@@ -8,7 +8,11 @@ RUN apt-get update
 RUN apt-get install -y \
     openssh-server \
     bash \
-    curl
+    curl \
+    openjdk-11-jre \
+    netcat \
+    telnet \
+    bind9-utils
 
 # Fix SSH permissions that always haunt me
 RUN mkdir -p /var/run/sshd /root/.ssh

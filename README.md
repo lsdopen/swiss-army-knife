@@ -55,3 +55,46 @@ SSH onto any Kubernetes Node on that port
 ```
 ssh root@worker-node-01 -p 30316
 ```
+
+### Declarative
+
+Create the file below and apply it to your namespace
+```
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: swiss-army-knife
+  name: swiss-army-knife
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swiss-army-knife
+  template:
+    metadata:
+      labels:
+        app: swiss-army-knife
+    spec:
+      containers:
+      - image: lsdopen/swiss-army-knife:latest
+        name: swiss-army-knife
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: swiss-army-knife
+  name: swiss-army-knife
+spec:
+  ports:
+  - name: 22-22
+    nodePort: 30316
+    port: 22
+    protocol: TCP
+    targetPort: 22
+  selector:
+    app: swiss-army-knife
+  type: NodePort
+```
