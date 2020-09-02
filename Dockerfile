@@ -12,7 +12,8 @@ RUN apt-get install -y \
     openjdk-11-jre \
     netcat \
     telnet \
-    bind9-utils
+    dnsutils \
+    iputils-ping
 
 # Fix SSH permissions that always haunt me
 RUN mkdir -p /var/run/sshd /root/.ssh
