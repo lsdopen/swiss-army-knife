@@ -11,6 +11,8 @@ RUN apt-get install -y \
     wget \
     curl \
     openjdk-11-jre \
+    git \
+    vim \
     netcat \
     telnet \
     dnsutils \
@@ -18,9 +20,10 @@ RUN apt-get install -y \
     p7zip-rar \
     iputils-ping && apt-get clean \
     && rm -rf /var/cache/apt /var/lib/apt/lists
-## Webify. Thanks Cron.weekly    
-ADD https://github.com/beefsack/webify/releases/download/v1.5.0/webify-v1.5.0-linux-amd64.tar.gz . \
-    && tar -C /usr/bin/ -xzf webify-v1.5.0-linux-amd64.tar.gz webify \
+
+## Webify. Thanks Cron.weekly
+ADD https://github.com/beefsack/webify/releases/download/v1.5.0/webify-v1.5.0-linux-amd64.tar.gz .
+RUN tar -C /usr/bin/ -xzf webify-v1.5.0-linux-amd64.tar.gz webify \
     && rm webify-v1.5.0-linux-amd64.tar.gz
     
 # Fix SSH permissions that always haunt me
