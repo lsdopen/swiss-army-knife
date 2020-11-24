@@ -13,6 +13,7 @@ RUN apt-get install -y \
     openjdk-11-jre \
     git \
     vim \
+    python2 \
     netcat \
     telnet \
     dnsutils \
