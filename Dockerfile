@@ -32,7 +32,7 @@ RUN mkdir -p /var/run/sshd /root/.ssh && touch /root/.ssh/authorized_keys && chm
 
 # Add your keys here. I wanted to keep everything in the Dockerfile because I am simple
 # This should probably be turned into a single command 
-#   cat << EOF > /root/.ssh/authorized_keys
+# cat << EOF > /root/.ssh/authorized_keys
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOxZL18D5uG4isdf3Nc6l0J/OJ6UE9lkXK7RAqd54muG" >> /root/.ssh/authorized_keys
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIINYLlgyqIqCbvIYy/7wrALSa+OrCyOqYDhBy+bXuzYq" >> /root/.ssh/authorized_keys
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/gbFPMzTifHUABqSfXPeLS81ch/dJj/dgfmFvDaOpb" >> /root/.ssh/authorized_keys
