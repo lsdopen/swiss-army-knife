@@ -38,6 +38,7 @@ RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIINYLlgyqIqCbvIYy/7wrALSa+OrCyOqYD
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/gbFPMzTifHUABqSfXPeLS81ch/dJj/dgfmFvDaOpb" >> /root/.ssh/authorized_keys
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqcU6ptqV2+qEaq/pTHiYf+opG3eX+Wx5pJ36/xMCUS" >> /root/.ssh/authorized_keys
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUlau5tbkL3h9IP1hIeW1NFIxYvl+8uqsDhnNL5WYnu"  >> /root/.ssh/authorized_keys
+RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBH4v3QAgNMbQQpdfs1U9IJ3INFVY7e1+x3kBKuiUOVe stef" >> /root/.ssh/authorized_keys
 
 # Only allow SSH via key
 RUN sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin without-password/g' /etc/ssh/sshd_config
