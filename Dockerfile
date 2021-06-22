@@ -20,6 +20,7 @@ RUN apt-get install -y \
     p7zip-full \
     rsync \
     httpie \
+    jq \
     p7zip-rar \
     iputils-ping && apt-get clean \
     && rm -rf /var/cache/apt /var/lib/apt/lists
