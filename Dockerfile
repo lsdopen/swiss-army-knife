@@ -19,6 +19,7 @@ RUN apt-get install -y \
     dnsutils \
     p7zip-full \
     rsync \
+    httpie \
     p7zip-rar \
     iputils-ping && apt-get clean \
     && rm -rf /var/cache/apt /var/lib/apt/lists
