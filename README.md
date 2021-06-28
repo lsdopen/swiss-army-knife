@@ -78,8 +78,11 @@ spec:
         app: swiss-army-knife
     spec:
       containers:
-      - image: lsdopen/swiss-army-knife:latest
-        name: swiss-army-knife
+      - args:
+        - "3600"
+        command:
+        - sleep
+        image: lsdopen/swiss-army-knife:latest
 ---
 apiVersion: v1
 kind: Service
