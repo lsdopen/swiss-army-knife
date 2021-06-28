@@ -79,7 +79,7 @@ spec:
     spec:
       containers:
       - args:
-        - "3600"
+        - "infinity"
         command:
         - sleep
         image: lsdopen/swiss-army-knife:latest
