@@ -78,10 +78,8 @@ spec:
         app: swiss-army-knife
     spec:
       containers:
-      - args:
-        - "infinity"
-        command:
-        - sleep
+      - args: ["infinity"]
+        command: ["sleep"]
         image: lsdopen/swiss-army-knife:latest
 ---
 apiVersion: v1
