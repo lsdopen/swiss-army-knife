@@ -32,10 +32,10 @@ RUN mkdir -p /var/run/sshd /root/.ssh && touch /root/.ssh/authorized_keys && chm
     && echo 'AddressFamily inet' >> /etc/ssh/sshd_config \
     && echo '#ListenAddress 0.0.0.0' >> /etc/ssh/sshd_config \
     && sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd \
-    echo $'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBH4v3QAgNMbQQpdfs1U9IJ3INFVY7e1+x3kBKuiUOVe stef \n\
-   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbzDt6BN5T3gvJA0ilx/O/F69PReqdciKm/pIFnDTlt jg \n\
-   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOxZL18D5uG4isdf3Nc6l0J/OJ6UE9lkXK7RAqd54muG nw \n\
-   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUlau5tbkL3h9IP1hIeW1NFIxYvl+8uqsDhnNL5WYnu mac\n\' > /root/.ssh/authorized_keys
+    && echo $'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBH4v3QAgNMbQQpdfs1U9IJ3INFVY7e1+x3kBKuiUOVe stef \n\
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbzDt6BN5T3gvJA0ilx/O/F69PReqdciKm/pIFnDTlt jg \n\
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOxZL18D5uG4isdf3Nc6l0J/OJ6UE9lkXK7RAqd54muG nw \n\
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUlau5tbkL3h9IP1hIeW1NFIxYvl+8uqsDhnNL5WYnu mac\n\' > /root/.ssh/authorized_keys
 
 # Add your keys above. I wanted to keep everything in the Dockerfile because I am simple
 
