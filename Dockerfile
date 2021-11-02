@@ -31,7 +31,7 @@ RUN mkdir -p /var/run/sshd /root/.ssh && touch /root/.ssh/authorized_keys && chm
     && echo 'Port 2200' >> /etc/ssh/sshd_config \
     && echo 'AddressFamily inet' >> /etc/ssh/sshd_config \
     && echo '#ListenAddress 0.0.0.0' >> /etc/ssh/sshd_config \
-    && sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd
+    && sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd \
     && cat << EOF > /root/.ssh/authorized_keys
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBH4v3QAgNMbQQpdfs1U9IJ3INFVY7e1+x3kBKuiUOVe stef
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbzDt6BN5T3gvJA0ilx/O/F69PReqdciKm/pIFnDTlt jg
