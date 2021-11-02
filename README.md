@@ -18,7 +18,7 @@ podman run -d -P --name swiss-army-knife localhost/swiss-army-knife:latest
 Get the port
 ```
 podman port swiss-army-knife
-22/tcp -> 0.0.0.0:44563
+2200/tcp -> 0.0.0.0:44563
 ```
 
 SSH in
@@ -40,7 +40,7 @@ podman rm swiss-army-knife
 
 ```
 kubectl create deployment swiss-army-knife --image=lsdopen/swiss-army-knife:latest
-kubectl create service nodeport swiss-army-knife --tcp=22:22
+kubectl create service nodeport swiss-army-knife --tcp=2200:2200
 ```
 
 Determine the NodePort
@@ -48,7 +48,7 @@ Determine the NodePort
 kubectl get svc swiss-army-knife
 
 NAME               TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-swiss-army-knife   NodePort   172.31.107.24   <none>        22:30316/TCP   99s
+swiss-army-knife   NodePort   172.31.107.24   <none>        2200:30316/TCP   99s
 ```
 
 SSH onto any Kubernetes Node on that port
@@ -91,11 +91,11 @@ metadata:
   name: swiss-army-knife
 spec:
   ports:
-  - name: 22-22
+  - name: 2200-2200
     nodePort: 30316
-    port: 22
+    port: 2200
     protocol: TCP
-    targetPort: 22
+    targetPort: 2200
   selector:
     app: swiss-army-knife
   type: NodePort
