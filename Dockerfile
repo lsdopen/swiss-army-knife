@@ -16,6 +16,7 @@ RUN apt-get install -y \
     python2 \
     netcat \
     telnet \
+    traceroute \
     dnsutils \
     p7zip-full \
     rsync \
