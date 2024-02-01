@@ -36,6 +36,14 @@ podman rm swiss-army-knife
 
 ## Running on Kubernetes
 
+### Ephemeral Pod
+
+This pod will run and exec you in. It will them remove itself after.
+
+```
+kubectl run -it --rm swiss-army-knife --image=lsdopen/swiss-army-knife:latest -- bash
+```
+
 ### Imperative
 
 ```
