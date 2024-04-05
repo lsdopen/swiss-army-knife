@@ -9,13 +9,13 @@ RUN apt-get install -y \
     bash \
     wget \
     curl \
-    openjdk-11-jre \
     git \
     vim \
-    python2 \
-    netcat \
+    python3 \
+    ncat \
     telnet \
     traceroute \
+    tcptraceroute \
     dnsutils \
     p7zip-full \
     rsync \
