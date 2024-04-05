@@ -1,5 +1,5 @@
 # swiss-army-knife
-Container that contains (haha) lots of tools we use on a daily basis, with SSH daemon
+Container that contains (haha) lots of tools we use on a frequently. Is normally Ubuntu-based image, but Alpine could be used with some caveats
 
 ## Quicky and Dirty
 ```
@@ -12,23 +12,13 @@ ssh root@localhost -p $(podman port swiss-army-knife | awk -F\: '{print $2}')
 Building it local
 ```
 podman build -t swiss-army-knife .
+
+Run the container
+```
 podman run -d -P --name swiss-army-knife localhost/swiss-army-knife:latest
 ```
 
-Get the port
-```
-podman port swiss-army-knife
-22/tcp -> 0.0.0.0:44563
-```
-
-SSH in
-```
-ssh root@localhost -p 44563
-Last login: Wed Sep  2 10:49:55 2020 from 127.0.0.1
-root@ef8ce90c0ea5:~# 
-```
-
-Stop conatiner
+Stop container
 ```
 podman stop swiss-army-knife
 podman rm swiss-army-knife
@@ -48,20 +38,7 @@ kubectl run -it --rm swiss-army-knife --image=lsdopen/swiss-army-knife:latest --
 
 ```
 kubectl create deployment swiss-army-knife --image=lsdopen/swiss-army-knife:latest
-kubectl create service nodeport swiss-army-knife --tcp=22:22
-```
-
-Determine the NodePort
-```
-kubectl get svc swiss-army-knife
-
-NAME               TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-swiss-army-knife   NodePort   172.31.107.24   <none>        22:30316/TCP   99s
-```
-
-SSH onto any Kubernetes Node on that port
-```
-ssh root@worker-node-01 -p 30316
+kubectl expose deployment swiss-army-knife
 ```
 
 ### Declarative
@@ -98,13 +75,12 @@ metadata:
     app: swiss-army-knife
   name: swiss-army-knife
 spec:
+  clusterIP: {}
   ports:
-  - name: 22-22
-    nodePort: 30316
-    port: 22
+  - name: "8080"
     protocol: TCP
-    targetPort: 22
+    targetPort: 8080
   selector:
     app: swiss-army-knife
-  type: NodePort
+  type: ClusterIP
 ```
