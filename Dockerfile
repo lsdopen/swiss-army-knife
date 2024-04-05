@@ -30,6 +30,5 @@ ADD https://github.com/beefsack/webify/releases/download/v1.5.0/webify-v1.5.0-li
 RUN tar -C /usr/bin/ -xzf webify-v1.5.0-linux-amd64.tar.gz webify \
     && rm webify-v1.5.0-linux-amd64.tar.gz
 
-EXPOSE 22
 EXPOSE 8080
 # for webify
