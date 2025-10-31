@@ -44,8 +44,7 @@ kubectl expose deployment swiss-army-knife
 ### Declarative
 
 Create the file below and apply it to your namespace
-```
----
+```---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
