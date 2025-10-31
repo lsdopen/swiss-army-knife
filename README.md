@@ -37,8 +37,8 @@ kubectl run -it --rm swiss-army-knife --image=lsdopen/swiss-army-knife:latest --
 ### Imperative
 
 ```
-kubectl create deployment swiss-army-knife --image=lsdopen/swiss-army-knife:latest
-kubectl expose deployment swiss-army-knife
+kubectl create deployment swiss-army-knife --image=lsdopen/swiss-army-knife:latest \
+&& kubectl expose deployment swiss-army-knife
 ```
 
 ### Declarative
